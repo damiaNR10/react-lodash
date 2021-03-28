@@ -1,18 +1,6 @@
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-
-//     </div>
-//   );
-// }
-
-// export default App;
-
 import React from "react";
 import ReactDOM from "react-dom";
+import _ from "lodash";
 
 import "./App.css";
 
@@ -162,18 +150,7 @@ function Article({ title, paragraphs }) {
   );
 }
 function UniqueWords({ words }) {
-  const uniqueWords = [
-    "a",
-    "and",
-    "is",
-    "new",
-    "of",
-    "paragraph",
-    "second",
-    "sentence",
-    "start",
-    "this"
-  ];
+  const uniqueWords = _.uniq(words);
   return (
     <ul>
       {uniqueWords.map(word => (
