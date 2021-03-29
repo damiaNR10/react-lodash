@@ -108,8 +108,32 @@ class App extends React.Component {
         words: ["just", "one", "paragraph"]
       }
     ];
+    const titles = _.chain(data)
+    .map((value, key) => key)
+    .map(_.lowerCase)
+    .map(_.upperFirst)
+    .value();
+
+    const paragraphs = _.chain(data)
+    .map(article => 
+      _.chain(article)
+      .map(paragraph => 
+        _.chain(paragraph)
+        .map(sentence => _.chain(sentence)
+          .upperFirst()
+          .thru(value => value + ".")
+          .tap(console.log)
+          .value())
+        .join(" ")
+        .value())
+      .value())
+      .tap(console.log)
+    .value();
+
+    //const titles = _.map(data, (key, value) => key);
+    // const options = [[0, "First article"], [1, "Second article"]];
+    const options = _.map(titles, (value, index) => [index, value]);
     const currentArticle = temporaryArticles[this.state.articleIndex];
-    const options = [[0, "First article"], [1, "Second article"]];
     return (
       <>
         <Select
