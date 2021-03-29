@@ -76,38 +76,38 @@ class App extends React.Component {
   };
 
   render() {
-    const temporaryArticles = [
-      {
-        title: "First article",
-        paragraphs: [
-          "This is a sentence. And a second sentence",
-          "This is a start of a new paragraph"
-        ],
-        words: [
-          "this",
-          "is",
-          "a",
-          "sentence",
-          "and",
-          "a",
-          "second",
-          "sentence",
-          "this",
-          "is",
-          "a",
-          "start",
-          "of",
-          "a",
-          "new",
-          "paragraph"
-        ]
-      },
-      {
-        title: "Second article",
-        paragraphs: ["Just one paragraph"],
-        words: ["just", "one", "paragraph"]
-      }
-    ];
+    // const temporaryArticles = [
+    //   {
+    //     title: "First article",
+    //     paragraphs: [
+    //       "This is a sentence. And a second sentence",
+    //       "This is a start of a new paragraph"
+    //     ],
+    //     words: [
+    //       "this",
+    //       "is",
+    //       "a",
+    //       "sentence",
+    //       "and",
+    //       "a",
+    //       "second",
+    //       "sentence",
+    //       "this",
+    //       "is",
+    //       "a",
+    //       "start",
+    //       "of",
+    //       "a",
+    //       "new",
+    //       "paragraph"
+    //     ]
+    //   },
+    //   {
+    //     title: "Second article",
+    //     paragraphs: ["Just one paragraph"],
+    //     words: ["just", "one", "paragraph"]
+    //   }
+    // ];
     const titles = _.chain(data)
     .map((value, key) => key)
     .map(_.lowerCase)
@@ -137,13 +137,20 @@ class App extends React.Component {
         .words()
         .value())
       .flatten()
-      .tap(console.log)
       .value())
     .value();
+
+    const articles = _.chain(_.zip(titles, paragraphs, words))
+      .map(([title, paragraphs, words]) => ({
+        title: title,
+        paragraphs: paragraphs,
+        words: words
+      }))
+      .value();
     //const titles = _.map(data, (key, value) => key);
     // const options = [[0, "First article"], [1, "Second article"]];
     const options = _.map(titles, (value, index) => [index, value]);
-    const currentArticle = temporaryArticles[this.state.articleIndex];
+    const currentArticle = articles[this.state.articleIndex];
     return (
       <>
         <Select
