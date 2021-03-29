@@ -122,14 +122,24 @@ class App extends React.Component {
         .map(sentence => _.chain(sentence)
           .upperFirst()
           .thru(value => value + ".")
-          .tap(console.log)
           .value())
         .join(" ")
         .value())
       .value())
-      .tap(console.log)
     .value();
 
+    const words = _.chain(data)
+    .map(article => 
+      _.chain(article)
+      .flattenDeep()
+      .flatMap(sentence => 
+        _.chain(sentence)
+        .words()
+        .value())
+      .flatten()
+      .tap(console.log)
+      .value())
+    .value();
     //const titles = _.map(data, (key, value) => key);
     // const options = [[0, "First article"], [1, "Second article"]];
     const options = _.map(titles, (value, index) => [index, value]);
