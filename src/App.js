@@ -24,7 +24,8 @@ const data = {
       "et malesuada fames ac turpis egestas sed tempus",
       "velit dignissim sodales ut eu sem integer vitae",
       "erat nam at lectus urna",
-      "sit amet porttitor eget dolor morbi non arcu risus quis"
+      "sit amet porttitor eget dolor morbi non arcu risus quis",
+      "et malesuada fames ac turpis egestas sed tempus"
     ],
     [
       "ac tortor vitae purus faucibus ornare suspendisse",
