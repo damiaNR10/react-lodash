@@ -22,10 +22,6 @@ const data = {
       "consectetur a erat nam at lectus urna duis convallis convallis",
       "dictumst quisque sagittis purus sit amet volutpat consequat mauris",
       "et malesuada fames ac turpis egestas sed tempus",
-      "velit dignissim sodales ut eu sem integer vitae",
-      "erat nam at lectus urna",
-      "sit amet porttitor eget dolor morbi non arcu risus quis",
-      "et malesuada fames ac turpis egestas sed tempus"
     ],
     [
       "ac tortor vitae purus faucibus ornare suspendisse",
